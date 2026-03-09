@@ -1,15 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Set current date for the event (you can customize this)
+    // Set specific date for March 10, 2026
     const eventDateElement = document.getElementById('event-date');
-    const today = new Date();
-    const nextWeek = new Date(today.getTime() + 7 * 24 * 60 * 60 * 1000);
-    
-    const options = { 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric',
-        weekday: 'long'
-    };
+    const eventDate = new Date(2026, 2, 10); // March 10, 2026 (month is 0-indexed)
     
     const kyrgyzMonths = [
         'январь', 'февраль', 'март', 'апрель', 'май', 'июнь',
@@ -21,12 +13,12 @@ document.addEventListener('DOMContentLoaded', function() {
         'бейшемби', 'жума', 'ишемби'
     ];
     
-    const day = nextWeek.getDate();
-    const month = kyrgyzMonths[nextWeek.getMonth()];
-    const year = nextWeek.getFullYear();
-    const dayName = kyrgyzDays[nextWeek.getDay()];
+    const day = eventDate.getDate();
+    const month = kyrgyzMonths[eventDate.getMonth()];
+    const year = eventDate.getFullYear();
+    const dayName = kyrgyzDays[eventDate.getDay()];
     
-    eventDateElement.textContent = `${day} ${month}, ${year} жыл, ${dayName}`;
+    eventDateElement.textContent = `${day}-${month}, ${dayName}`;
 
     // Add interactive animations
     const invitationCard = document.querySelector('.invitation-card');
@@ -125,7 +117,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add countdown timer (optional)
     function updateCountdown() {
-        const eventDate = nextWeek;
+        const eventDate = new Date(2026, 2, 10); // March 10, 2026
         const now = new Date();
         const timeLeft = eventDate - now;
         
